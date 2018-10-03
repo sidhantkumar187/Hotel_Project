@@ -3,7 +3,7 @@ var router = express.Router();
 const db = require("../db");
 /* GET home page. */
 
-router.get('/', function(req, res, next) {
+router.get('/',ensureAuthenticated, function(req, res, next) {
   db.query("SELECT * FROM hotels WHERE id = $1",[1], (error,result) => {
     if (error) {
       return next (error);
@@ -12,6 +12,14 @@ router.get('/', function(req, res, next) {
     res.render('index', { title: 'Book Hotel' ,firstplace:'Chandigarh', secondplace: 'Delhi' , Name: result.rows[0].name , Location: result.rows[0].locality, Price: result.rows[0].price });
   });
 });
+function ensureAuthenticated(req, res, next){
+	if(req.isAuthenticated()){
+		return next();
+	} else {
+		//req.flash('error_msg','You are not logged in');
+		res.redirect('/users/register');
+	}
+}
 router.post('/', function (req,res, next){
   var email = req.body.RegisterEmail;
   var password = req.body.RegisterPassword;
