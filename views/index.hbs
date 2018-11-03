@@ -13,6 +13,7 @@
                 Login
                 </a>
                 {{/if}}
+                <p>{{user.username}}</p>
             </div>
     </nav>
     <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color:black">
@@ -97,29 +98,37 @@
                 <h2>Find Deals for Hotels</h2>
                 <p>Best Prices!!</p>
                 <!-- style="background-color:#febb02;padding:4px;border-radius:4px;width:auto; -->
-    <div class="row" style="background-color:#febb02;padding:4px;border-radius:4px;max-width:1037px;">   
+    <form method="post" action="/hotels/search">
+        <div class="row" style="background-color:#febb02;padding:4px;border-radius:4px;max-width:1037px;">   
         <div class="searchbox-outer" style="width:400px;">
-            <div class="searchbox" style=""><input type="text" class="form-control" placeholder="Where are u going to ?" style="background-image:url(https://s-ec.bstatic.com/static/img/cross_product_index/accommodation/07ca5cacc9d77a7b50ca3c424ecd606114d9be75.svg);background-repeat:no-repeat;background-position:16px center;padding-left:50px;background-size:20px;display:block;"
+            <div class="searchbox" style=""><input type="text" class="form-control"  name ="slocation" placeholder="Where are u going to ?" style="background-image:url(https://www.yellowstonenationalparklodges.com/content/uploads/2018/08/Bed-icon.png);background-repeat:no-repeat;background-position:16px center;padding-left:50px;background-size:20px;display:block;"
                 /></div>
         </div>
         <div class="calanderbox-in-outer" style="width:200px;padding-left:4px;padding-right:4px;">
-            <div class="calanderbox-in" style=""><input type="date" class="form-control" placeholder="Check-in" style="background-image:url(\images\calender.jpg);background-repeat:no-repeat;background-position:16px center;padding-left:50px;background-size:20px;display:block;"
+            <div class="calanderbox-in" style=""><input type="date" class="form-control" name ="scheckin" placeholder="Check-in" style="background-image:url(https://image.freepik.com/free-icon/calendar-interface-symbol-tool_318-58214.jpg);background-repeat:no-repeat;background-position:16px center;padding-left:50px;background-size:20px;display:block;"
                 /></div>
         </div>
         <div class="calanderbox-out-outer" style="width:200px;padding-left:4px;padding-right:4px;">
-            <div class="calanderbox-out" style=""><input type="date" class="form-control" placeholder="Check-out" style="background-image:url(\images\calender.jpg);background-repeat:no-repeat;background-position:16px center;padding-left:50px;background-size:20px;display:block;"
+            <div class="calanderbox-out" style=""><input type="date" class="form-control" name ="scheckout" placeholder="Check-out" style="background-image:url(https://image.freepik.com/free-icon/calendar-interface-symbol-tool_318-58214.jpg);background-repeat:no-repeat;background-position:16px center;padding-left:50px;background-size:20px;display:block;"
                 /></div>
         </div>
         <div class="individual-box-outer" style="width:150px;padding-left:4px;padding-right:4px;">
-            <div class="individual-box" style=""><input type="text" class="form-control" placeholder="Rooms" style="background-image:url(individuals.jpg);background-repeat:no-repeat;background-position:16px center;padding-left:50px;background-size:20px;display:block;"
-                /></div>
+            <div class="individual-box" style=""><select class="custom-select" name="individuals" id="inputGroupSelect01" style="background-image:url(https://png.pngtree.com/svg/20170502/user_login__115485.png);background-repeat:no-repeat;background-position:16px center;padding-left:50px;background-size:20px;display:block;">
+                                                    <option selected>Individuals</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                    <option value="4">Four</option>
+                                                </select>
+            </div>
         </div>
         <div class="Search-button-outer" style="width:50px;padding-left:4px;padding-right:4px;">
             <div class="search-button" style="position: relative;width: 100%;">
                 <button class="btn btn-primary" type="submit">Search</button>
             </div>
         </div>
-    </div>
+        </div>
+    </form>
 </div>
     </div>
 </div>
@@ -324,7 +333,7 @@
                                 <p class="location"><i class="fa fa-map-marker"></i><span class="city">{{Location}}</span>,placename</p>
                                 <p class="card-text">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 ...</p>
                                 <p><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i> </p>
-                                <a href="#" class="card-link btn btn-primary btn-sm">Book Now</a>
+                                <a href="/hotels/page/1" class="card-link btn btn-primary btn-sm">Book Now</a>
                                 <a href="#pt" class="price card-link">{{Price}}</a>
                             </div>
                         </div>

@@ -30,3 +30,12 @@ i{
   .brand-surname{
     color:red;
   }
+  input[type=checkbox] {
+    transform: scale(1.5);
+  }
+  .d-block{
+    max-height: 400px;
+  }
+  .fac-list{
+    color: green;
+  }

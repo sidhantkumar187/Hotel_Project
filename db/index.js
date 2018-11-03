@@ -35,13 +35,25 @@ var pool = new Pool ({
     },
     getUserById : function (id , callback ) {
         console.log("getUserById : "+id);
-        initquery("SELECT * FROM users WHERE userid =  $1",[id], (error,result) => {
-            if (error) {
-                console.log("Error in query getuserbyid"+error);
+        initquery("SELECT * FROM users WHERE userid =  $1",[id], (error,result) => {    // Kindly change it to retrieve without
+            if (error) {                                                                // password bcoz its passing user object to session
+                console.log("Error in query getuserbyid"+error);                        // hence all the data will be visible inside template
             }
             var userjson = result.rows[0];
             console.log("Inside getUserByUsername"+userjson);
             callback(null, {username : userjson.username, id: userjson.userid, password :userjson.password, email :userjson.useremail});
+        });
+    },
+    getHotelInfo : function(hotelid,callback){
+        initquery("SELECT * from hotels left join facilities on hotels.id = facilities.hotelid where id = $1",[hotelid], (error,result) =>{
+            if (error) {
+                console.log("Error in query getuserbyid"+error);
+            }
+            if(result.rows.length > 0) {
+                console.log("wifi"+result.rows[0].wifi);
+                var hoteljson = result.rows[0];
+                callback(null, hoteljson);
+            }
         });
     },
     getUserByUsername : function (username, callback){

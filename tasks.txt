@@ -1,0 +1,9 @@
+1. Getting date from user and then saving it to the Database
+
+2. Querying the Database to get if particular hotel is booked or not
+
+3. populating front page, finsihing hotel main page + search page
+
+4. populating database
+
+5. Adding new user dashboard
