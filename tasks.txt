@@ -7,3 +7,14 @@
 4. populating database
 
 5. Adding new user dashboard
+
+---------------------------------------EXTRAS:---------------------------------------------------------
+
+1. Include timestamp in the Database reservation table
+
+
+---------------------------------------ERRORS:---------------------------------------------------
+
+ Not Found 404 may also come if,
+                                 in the route handler u have not sent any response ( i.e res.render res.send ) .
+                                 or the response specified page is wrong or not created (its view i.e html file is not written)

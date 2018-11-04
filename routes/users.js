@@ -20,8 +20,8 @@ router.post('/register',function(req,res, next){
   var email = req.body.RegisterEmail;
   var password = req.body.RegisterPassword;
   var username = req.body.username;
-  console.log(email);
-  console.log(password);
+  // console.log(email);
+  // console.log(password);
   // Validation
   req.checkBody('RegisterEmail', 'Email is required').notEmpty();
   req.checkBody('RegisterPassword', 'Password is required').notEmpty();
@@ -43,7 +43,7 @@ router.post('/register',function(req,res, next){
       };
       User.createUser(newUser,function (err, user) {
         if (err) throw err;
-        console.log(user);
+        // console.log(user);
       });
       req.flash('success_msg', 'You are registered and can now login');
       res.redirect('/users/login');
@@ -72,7 +72,7 @@ passport.use(new LocalStrategy(
 
 passport.serializeUser(function (user, done) {
   done(null, user.id);
-  console.log("serialize called");
+  // console.log("serialize called");
 });
 
 passport.deserializeUser(function (id, done) {
@@ -87,13 +87,13 @@ router.get('/login', function(req,res,next){
 router.post('/login',
   passport.authenticate('local',{successRedirect: '/', failureRedirect: '/users/login', failureFlash: true}),
   function(req,res){
-  console.log("login post request called");
+  // console.log("login post request called");
     // if this function gets called then Authentication was successfull
     res.redirect('/');
 });
 
 router.get('/logout', function(req,res){
-  console.log("logout inside");
+  // console.log("logout inside");
   req.logout();
   req.flash('success_msg', 'You are Logged Out Now');
   res.redirect('/users/login');

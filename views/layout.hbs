@@ -17,6 +17,30 @@
     <title>{{title}}</title>
   </head>
   <body>
+    <nav class="navbar navbar-light sticky-top" style="background-color:black">
+        <a class="navbar-brand font-weight-bold" href="/" style="color: red ; font-family:pacifico;font-size: 30px;font-variant: small-caps;">
+            <img src="\images\b.png" width="60" height="60" class="d-inline-block align-center">
+            <span class="pl-3">Book <span class="brand-surname">Hotel</span></span>
+        </a>
+    <div class="usertab">
+        {{#if user}}
+        <i class="fas fa-user-circle" style="color:white"></i><a href="#"><span class="pl-1" style="color: white">{{user.username}}</span></a>
+        <a href="\users\logout" type="button" class="btn btn-primary push-right mx-2">
+            Logout
+        </a>
+        
+        {{else}}
+        <button href="\users\register" type="button" class="btn btn-primary push-right mx-2" data-toggle="modal" data-target="#exampleModalLong">
+        Register
+        </button>
+        <a href="\users\login" type="button" class="btn btn-primary push-right mx-2">
+        Login
+        </a>
+        {{/if}}
+         
+    </div>
+{{!-- </div> --}}
+</nav>
     {{{body}}}
     <script src="\bootstrap\assets\js\vendor\jquery-slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="/javascripts/jquery.min.js"></script>

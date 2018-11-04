@@ -85,7 +85,7 @@
                         <div class="row fac-list">
                             <div class="col-sm">
                             {{#if hotel.wifi}}
-                                <p><i class="fa fa-wifi"></i><strong>Open air Swimming Pool</strong></p>
+                                <p><i class="fa fa-wifi"></i><strong>Wifi</strong></p>
                             {{/if}}
                             </div>
                             <div class="col-sm">
@@ -110,7 +110,36 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <div class="col">
+                        <form method="post" action="/hotels/confirmbook/1">
+                            <div class="row" style="background-color:#febb02;padding:4px;border-radius:4px;max-width:auto;">
+                            <div class="calanderbox-in-outer" style="width:auto;padding-left:4px;padding-right:4px;">
+                                <div class="calanderbox-in" style=""><input type="date" class="form-control" name ="checkin" placeholder="Check-in" style="background-image:url(https://image.freepik.com/free-icon/calendar-interface-symbol-tool_318-58214.jpg);background-repeat:no-repeat;background-position:16px center;padding-left:50px;background-size:20px;display:block;"
+                                    /></div>
+                            </div>
+                            <div class="calanderbox-out-outer" style="width:auto;padding-left:4px;padding-right:4px;">
+                                <div class="calanderbox-out" style=""><input type="date" class="form-control" name ="checkout" placeholder="Check-out" style="background-image:url(https://image.freepik.com/free-icon/calendar-interface-symbol-tool_318-58214.jpg);background-repeat:no-repeat;background-position:16px center;padding-left:50px;background-size:20px;display:block;"
+                                    /></div>
+                            </div>
+                            <div class="individual-box-outer" style="width:auto;padding-left:4px;padding-right:4px;">
+                                <div class="individual-box" style=""><select class="custom-select" name="individuals" id="inputGroupSelect01" style="background-image:url(https://png.pngtree.com/svg/20170502/user_login__115485.png);background-repeat:no-repeat;background-position:16px center;padding-left:50px;background-size:20px;display:block;">
+                                                                        <option selected>Individuals</option>
+                                                                        <option value="1">One</option>
+                                                                        <option value="2">Two</option>
+                                                                        <option value="3">Three</option>
+                                                                        <option value="4">Four</option>
+                                                                    </select>
+                                </div>
+                            </div>
+                            <div class="Search-button-outer" style="width:auto;padding-left:4px;padding-right:4px;">
+                                <div class="search-button" style="position: relative;width: 100%;">
+                                    <button class="btn btn-primary" type="submit">Book It</button>
+                                </div>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                    <a href="/hotels/confirmbook/1">Click!</a>
                     
                     
                     

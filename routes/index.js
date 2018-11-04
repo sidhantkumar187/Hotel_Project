@@ -8,8 +8,13 @@ router.get('/',ensureAuthenticated, function(req, res, next) {
     if (error) {
       return next (error);
     }
+    //-------------------   To get Info stored inside session 
+    // var username = req.session.passport.user;    getting userid stored inside session's passport's user object
+    // console.log(username);
     // res.send(result.rows[0].status);
     res.render('index', { title: 'Book Hotel' ,firstplace:'Chandigarh', secondplace: 'Delhi' , Name: result.rows[0].name , Location: result.rows[0].locality, Price: result.rows[0].price });
+    var mak = req.user;
+    console.log(mak);
   });
 });
 function ensureAuthenticated(req, res, next){
@@ -23,8 +28,8 @@ function ensureAuthenticated(req, res, next){
 router.post('/', function (req,res, next){
   var email = req.body.RegisterEmail;
   var password = req.body.RegisterPassword;
-  console.log(email);
-  console.log(password);
+  // console.log(email);
+  // console.log(password);
 });
 
 module.exports = router;
